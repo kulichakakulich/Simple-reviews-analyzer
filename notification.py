@@ -31,6 +31,7 @@ def WebMonitoring(myname, mypass):
         time.sleep(3)
         bot.send_message(userid, "Running script...")
         bot.send_sticker(userid, 'CAACAgEAAxkBAAEGb51jdBQL2R9NbRGUcG2Gd_gM3g06LwACTgoAAiz32gVR8cPwsFhtAAErBA')
+
         while True:
             time.sleep(60)
             driver.refresh()
