@@ -2,12 +2,15 @@ import time
 import selenium.common
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+import telebot
+from personaldata import *
 
 url = 'https://edu.21-school.ru'
 CodeReview = 'https://edu.21-school.ru/projects/code-review'
 
 
 def WebMonitoring(MyName, MyPass):
+    Bot = telebot.TeleBot(token)
     try:
         driver = webdriver.Chrome('C:\\chromedriver\chromedriver.exe')
         time.sleep(2)
@@ -26,12 +29,12 @@ def WebMonitoring(MyName, MyPass):
             driver.refresh()
             time.sleep(3)
             elem = driver.find_element(By.XPATH, '//*[@id="root"]/div[2]/div/section/div/section[2]')
-            print("NO CODE REVIEW")
 
     except selenium.common.NoSuchElementException:
-        print('CODE REVIEW!!!')
+        Bot.send_message(userid,"Пришло, ура ура")
         WebMonitoring(MyName, MyPass)
 
 
 if __name__ == "__main__":
     WebMonitoring(MyName, MyPass)
+
