@@ -11,8 +11,8 @@ url = 'https://edu.21-school.ru'
 CodeReview = 'https://edu.21-school.ru/projects/code-review'
 
 
-def WebMonitoring(MyName, MyPass):
-    Bot = telebot.TeleBot(token)
+def WebMonitoring(myname, mypass):
+    bot = telebot.TeleBot(token)
     try:
         chrome_options = Options()
         chrome_options.add_argument("--headless")
@@ -22,24 +22,23 @@ def WebMonitoring(MyName, MyPass):
         time.sleep(3)
         login = driver.find_element(By.NAME, "username")
         password = driver.find_element(By.NAME, "password")
-        login.send_keys(MyName)
-        password.send_keys(MyPass)
+        login.send_keys(myname)
+        password.send_keys(mypass)
         driver.find_element(By.XPATH, '//*[@id="login"]/div/div/div[2]/div/div/form/div[3]/button').click()
         time.sleep(2)
         driver.get(CodeReview)
         time.sleep(3)
-        Bot.send_message(userid, "Running script...")
+        bot.send_message(userid, "Running script...")
         while True:
             time.sleep(60)
             driver.refresh()
             time.sleep(3)
-            elem = driver.find_element(By.XPATH, '//*[@id="root"]/div[2]/div/section/div/section[2]')
+            elem = driver.find_element(By.XPATH, '//*[@id="root"]/div[2]/div/section/div/section[2]/h4')
 
     except selenium.common.NoSuchElementException:
-        Bot.send_message(userid, "Пришло, ура ура")
-        WebMonitoring(MyName, MyPass)
+        bot.send_message(userid, "Пришло, ура ура")
+        WebMonitoring(myname, mypass)
 
 
 if __name__ == "__main__":
-    WebMonitoring(MyName, MyPass)
-
+    WebMonitoring(myname, mypass)
