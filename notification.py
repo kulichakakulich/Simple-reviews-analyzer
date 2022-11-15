@@ -13,9 +13,10 @@ codereview = 'https://edu.21-school.ru/projects/code-review'
 
 def WebMonitoring(myname, mypass):
     bot = telebot.TeleBot(token)
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")
+
     try:
-        chrome_options = Options()
-        chrome_options.add_argument("--headless")
         driver = webdriver.Chrome(options=chrome_options)
         time.sleep(2)
         driver.get(url)
