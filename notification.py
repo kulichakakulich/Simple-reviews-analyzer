@@ -29,7 +29,7 @@ def WebMonitoring(myname, mypass):
         driver.get(codereview)
         time.sleep(3)
         bot.send_message(userid, "Running script...")
-        bot.send_message(userid, 'CAACAgEAAxkBAAEGb51jdBQL2R9NbRGUcG2Gd_gM3g06LwACTgoAAiz32gVR8cPwsFhtAAErBA')
+        bot.send_sticker(userid, 'CAACAgEAAxkBAAEGb51jdBQL2R9NbRGUcG2Gd_gM3g06LwACTgoAAiz32gVR8cPwsFhtAAErBA')
         while True:
             time.sleep(60)
             driver.refresh()
@@ -38,7 +38,7 @@ def WebMonitoring(myname, mypass):
 
     except selenium.common.NoSuchElementException:
         bot.send_message(userid, "Code review on board, let's do it!")
-        bot.send_message(userid, 'CAACAgEAAxkBAAEGb5tjdBPTt6YzR7Y4LnQZF1eBzgESGgACOQoAAiz32gWg-EZjbaI7dysE')
+        bot.send_sticker(userid, 'CAACAgEAAxkBAAEGb5tjdBPTt6YzR7Y4LnQZF1eBzgESGgACOQoAAiz32gWg-EZjbaI7dysE')
         WebMonitoring(myname, mypass)
 
 
