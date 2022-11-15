@@ -8,7 +8,7 @@ from selenium.webdriver.chrome.options import Options
 from personaldata import *
 
 url = 'https://edu.21-school.ru'
-CodeReview = 'https://edu.21-school.ru/projects/code-review'
+codereview = 'https://edu.21-school.ru/projects/code-review'
 
 
 def WebMonitoring(myname, mypass):
@@ -26,9 +26,10 @@ def WebMonitoring(myname, mypass):
         password.send_keys(mypass)
         driver.find_element(By.XPATH, '//*[@id="login"]/div/div/div[2]/div/div/form/div[3]/button').click()
         time.sleep(2)
-        driver.get(CodeReview)
+        driver.get(codereview)
         time.sleep(3)
         bot.send_message(userid, "Running script...")
+        bot.send_message(userid, 'CAACAgEAAxkBAAEGb51jdBQL2R9NbRGUcG2Gd_gM3g06LwACTgoAAiz32gVR8cPwsFhtAAErBA')
         while True:
             time.sleep(60)
             driver.refresh()
@@ -36,7 +37,8 @@ def WebMonitoring(myname, mypass):
             elem = driver.find_element(By.XPATH, '//*[@id="root"]/div[2]/div/section/div/section[2]/h4')
 
     except selenium.common.NoSuchElementException:
-        bot.send_message(userid, "Пришло, ура ура")
+        bot.send_message(userid, "Code review on board, let's do it!")
+        bot.send_message(userid, 'CAACAgEAAxkBAAEGb5tjdBPTt6YzR7Y4LnQZF1eBzgESGgACOQoAAiz32gWg-EZjbaI7dysE')
         WebMonitoring(myname, mypass)
 
 
