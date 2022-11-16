@@ -33,14 +33,16 @@ def WebMonitoring(myname, mypass):
         bot.send_sticker(userid, 'CAACAgEAAxkBAAEGb51jdBQL2R9NbRGUcG2Gd_gM3g06LwACTgoAAiz32gVR8cPwsFhtAAErBA')
 
         while True:
-            time.sleep(60)
+            time.sleep(50)
             driver.refresh()
-            time.sleep(3)
+            time.sleep(10)
             elem = driver.find_element(By.XPATH, '//*[@id="root"]/div[2]/div/section/div/section[2]/h4')
 
     except selenium.common.NoSuchElementException:
+        driver.quit()
         bot.send_message(userid, "Code review on board, let's do it!")
         bot.send_sticker(userid, 'CAACAgEAAxkBAAEGb5tjdBPTt6YzR7Y4LnQZF1eBzgESGgACOQoAAiz32gWg-EZjbaI7dysE')
+        time.sleep(3)
         WebMonitoring(myname, mypass)
 
 
