@@ -16,7 +16,7 @@ Before running the script, make sure that you have the following installed:
     - password: your password for the 21-school educational platform
     - user_id: your telegram user id
     - token: your telegram bot token
-4. Run the script using the command python WebMonitoring.py
+4. Run the script using the command python web_monitoring.py
 
 ### How it works
 The script opens a headless Chrome browser and logs in to the 21-school educational platform using the credentials provided in personal_data.py. It then navigates to the code review page and checks if a code review is available. If a code review is available, it sends a notification to the telegram user with the user id provided in personal_data.py.
