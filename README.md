@@ -4,10 +4,10 @@ WebMonitoring is a Python script that automates the login process to the 21-scho
 ### Prerequisites
 Before running the script, make sure that you have the following installed:
 
-[Python](https://www.python.org/downloads/)
-[Selenium WebDriver](https://selenium-python.readthedocs.io/installation.html#introduction)
-[ChromeDriver](https://chromedriver.chromium.org/downloads)
-[telebot](https://pypi.org/project/pyTelegramBotAPI/)
+- [Python](https://www.python.org/downloads/)
+- [Selenium WebDriver](https://selenium-python.readthedocs.io/installation.html#introduction)
+- [ChromeDriver](https://chromedriver.chromium.org/downloads)
+- [telebot](https://pypi.org/project/pyTelegramBotAPI/)
 ### Usage
 1. Clone the repository to your local machine
 2. Install the prerequisites
