@@ -5,13 +5,13 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 
-from personaldata import *
+from personal_data import login, password, token, user_id
 
 url = 'https://edu.21-school.ru'
-codereview = 'https://edu.21-school.ru/projects/code-review'
+code_review = 'https://edu.21-school.ru/projects/code-review'
 
 
-def WebMonitoring(myname, mypass):
+def WebMonitoring(login, password):
     bot = telebot.TeleBot(token)
     chrome_options = Options()
     chrome_options.add_argument("--headless")
@@ -23,14 +23,14 @@ def WebMonitoring(myname, mypass):
         time.sleep(3)
         login = driver.find_element(By.NAME, "username")
         password = driver.find_element(By.NAME, "password")
-        login.send_keys(myname)
-        password.send_keys(mypass)
+        login.send_keys(login)
+        password.send_keys(password)
         driver.find_element(By.XPATH, '//*[@id="login"]/div/div/div[2]/div/div/form/div[3]/button').click()
         time.sleep(2)
-        driver.get(codereview)
+        driver.get(code_review)
         time.sleep(3)
-        bot.send_message(userid, "Running script...")
-        bot.send_sticker(userid, 'CAACAgEAAxkBAAEGb51jdBQL2R9NbRGUcG2Gd_gM3g06LwACTgoAAiz32gVR8cPwsFhtAAErBA')
+        bot.send_message(user_id, "Running script...")
+        bot.send_sticker(user_id, 'CAACAgEAAxkBAAEGb51jdBQL2R9NbRGUcG2Gd_gM3g06LwACTgoAAiz32gVR8cPwsFhtAAErBA')
 
         while True:
             time.sleep(50)
@@ -40,11 +40,11 @@ def WebMonitoring(myname, mypass):
 
     except selenium.common.NoSuchElementException:
         driver.quit()
-        bot.send_message(userid, "Code review on board, let's do it!")
-        bot.send_sticker(userid, 'CAACAgEAAxkBAAEGb5tjdBPTt6YzR7Y4LnQZF1eBzgESGgACOQoAAiz32gWg-EZjbaI7dysE')
+        bot.send_message(user_id, "Code review on board, let's do it!")
+        bot.send_sticker(user_id, 'CAACAgEAAxkBAAEGb5tjdBPTt6YzR7Y4LnQZF1eBzgESGgACOQoAAiz32gWg-EZjbaI7dysE')
         time.sleep(3)
-        WebMonitoring(myname, mypass)
+        WebMonitoring(login, password)
 
 
 if __name__ == "__main__":
-    WebMonitoring(myname, mypass)
+    WebMonitoring(login, password)
