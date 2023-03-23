@@ -23,5 +23,5 @@ The script opens a headless Chrome browser and logs in to the 21-school educatio
 
 The script continuously checks for code reviews every 50 seconds. If a code review is not available, it refreshes the page and checks again.
 
-#### Disclaimer
+### Disclaimer
 This script was created for educational purposes only. The authors are not responsible for any misuse or damage caused by this script. Use at your own risk.
